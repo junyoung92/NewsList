@@ -56,15 +56,39 @@
 		0810433F2BD148DF006AEF3E /* NewsList */ = {
 			isa = PBXGroup;
 			children = (
-				081043402BD148DF006AEF3E /* AppDelegate.swift */,
-				081043422BD148DF006AEF3E /* SceneDelegate.swift */,
-				081043442BD148DF006AEF3E /* ViewController.swift */,
-				081043462BD148DF006AEF3E /* Main.storyboard */,
-				081043492BD148E0006AEF3E /* Assets.xcassets */,
-				0810434B2BD148E0006AEF3E /* LaunchScreen.storyboard */,
-				0810434E2BD148E0006AEF3E /* Info.plist */,
+				081043542BD14934006AEF3E /* Application */,
+				081043552BD14939006AEF3E /* Resources */,
+				081043562BD14953006AEF3E /* Presentation */,
 			);
 			path = NewsList;
+			sourceTree = "<group>";
+		};
+		081043542BD14934006AEF3E /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				081043402BD148DF006AEF3E /* AppDelegate.swift */,
+				081043422BD148DF006AEF3E /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		081043552BD14939006AEF3E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				081043492BD148E0006AEF3E /* Assets.xcassets */,
+				0810434E2BD148E0006AEF3E /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		081043562BD14953006AEF3E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				081043442BD148DF006AEF3E /* ViewController.swift */,
+				081043462BD148DF006AEF3E /* Main.storyboard */,
+				0810434B2BD148E0006AEF3E /* LaunchScreen.storyboard */,
+			);
+			path = Presentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,7 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsList/Info.plist;
+				INFOPLIST_FILE = NewsList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -304,7 +328,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.junyoung.NewsList;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.junyoung.newslist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -320,7 +344,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = NewsList/Info.plist;
+				INFOPLIST_FILE = NewsList/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -331,7 +355,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = kr.junyoung.NewsList;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.junyoung.newslist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
