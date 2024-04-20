@@ -7,19 +7,21 @@
 
 import Alamofire
 
-final class Endpoint {
+final class Endpoint<R> {
 
+    typealias Response = R
+    
     let path: String
     let httpMethod: HTTPMethod
     let headerParameters: HTTPHeaders?
-    let queryParameters: Parameters?
-    let bodyParameters: Parameters?
+    let queryParameters: Encodable?
+    let bodyParameters: Encodable?
 
     init(path: String,
          httpMethod: HTTPMethod,
          headerParameters: HTTPHeaders? = nil,
-         queryParameters: Parameters? = nil,
-         bodyParameters: Parameters? = nil) {
+         queryParameters: Encodable? = nil,
+         bodyParameters: Encodable? = nil) {
         self.path = path
         self.httpMethod = httpMethod
         self.headerParameters = headerParameters
