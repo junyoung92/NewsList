@@ -5,11 +5,12 @@
 //  Created by Junyoung Kil on 4/18/24.
 //
 
+import Combine
 import Foundation
 
 class BaseListViewModel: BaseViewModel {
     
-    var cellViewModels = [BaseCellViewModel]()
+    @Published var cellViewModels = [BaseCellViewModel]()
     
     var numberOfItemsInSection: Int {
         return cellViewModels.count

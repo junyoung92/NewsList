@@ -15,7 +15,7 @@ struct NewsResponseDTO: Codable {
 extension NewsResponseDTO {
     struct NewsArticleDTO: Codable {
         var title: String
-        var urlToImage: String
+        var urlToImage: String?
         var publishedAt: String
     }
 }

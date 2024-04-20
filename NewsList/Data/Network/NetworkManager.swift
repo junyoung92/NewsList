@@ -13,7 +13,7 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func request<T: Codable, D: Decodable>(endpoint: Endpoint<T>) -> AnyPublisher<D, Error> {
+    func request<D: Codable>(endpoint: Endpoint<D>) -> AnyPublisher<D, Error> {
         do {
             let url = AppConfiguration().apiBaseURL + endpoint.path
             var urlRequest = try URLRequest(url: url, method: endpoint.httpMethod)

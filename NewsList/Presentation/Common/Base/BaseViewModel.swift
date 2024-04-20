@@ -17,6 +17,6 @@ protocol BaseViewModelProtocol {
     
     func transform(input: Input) -> Output
     
-    func getData() -> AnyPublisher<Any, Never>
-    func fetchData(_ data: Any?)
+//    func getData() -> AnyPublisher<Any, Never>
+//    func fetchData(_ data: Any?)
 }

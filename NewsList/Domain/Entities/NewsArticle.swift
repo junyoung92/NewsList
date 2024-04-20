@@ -9,6 +9,6 @@ import Foundation
 
 struct NewsArticle: Codable {
     var title: String
-    var urlToImage: String
+    var urlToImage: String?
     var publishedAt: String
 }

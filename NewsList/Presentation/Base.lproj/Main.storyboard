@@ -8,17 +8,36 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--News List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsListViewController" id="BYZ-38-t0r" customClass="NewsListViewController" customModule="NewsList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cUP-ec-YUQ">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="GCE-SV-f4C">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="759"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" sectionInsetReference="safeArea" id="9y7-UR-3A9">
+                                            <size key="itemSize" width="0.0" height="128"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                    </collectionView>
+                                </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GCE-SV-f4C" secondAttribute="trailing" id="Ts2-Lr-Fvu"/>
+                                    <constraint firstItem="GCE-SV-f4C" firstAttribute="top" secondItem="cUP-ec-YUQ" secondAttribute="top" id="ZMk-cj-udL"/>
+                                    <constraint firstItem="GCE-SV-f4C" firstAttribute="leading" secondItem="cUP-ec-YUQ" secondAttribute="leading" id="mKA-Vm-u9c"/>
+                                    <constraint firstAttribute="bottom" secondItem="GCE-SV-f4C" secondAttribute="bottom" id="pQu-i3-8d2"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -30,6 +49,9 @@
                             <constraint firstItem="cUP-ec-YUQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oIO-t4-ewB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="newsCollectionView" destination="GCE-SV-f4C" id="u1b-dF-oEv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
