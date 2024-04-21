@@ -15,7 +15,7 @@ final class NewsListDataSource : NewsListDataSourceInterface {
 
     func fetchNewsList(request: NewsRequestDTO) -> AnyPublisher<NewsResponseDTO, any Error> {
         let apiEndpoint = NewsListAPIEndpoint.fetchNewsList(request)
-        return NetworkManager.shared.request(endpoint: apiEndpoint)
+        return NetworkManager.shared.request(endpoint: apiEndpoint, fileName: "News.json")
     }
 }
 

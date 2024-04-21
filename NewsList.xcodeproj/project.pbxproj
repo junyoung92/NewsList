@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		080043DD2BD40E5B0079797F /* NewsDetailWebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080043DC2BD40E5B0079797F /* NewsDetailWebViewModel.swift */; };
+		080043E52BD4B21D0079797F /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080043E42BD4B21D0079797F /* CacheManager.swift */; };
 		080D864C2BD361F500AD7B7C /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 080D864B2BD361F500AD7B7C /* Alamofire */; };
 		080D864E2BD361F500AD7B7C /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 080D864D2BD361F500AD7B7C /* AlamofireDynamic */; };
 		080D86502BD3634300AD7B7C /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080D864F2BD3634300AD7B7C /* NetworkManager.swift */; };
@@ -45,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		080043DC2BD40E5B0079797F /* NewsDetailWebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDetailWebViewModel.swift; sourceTree = "<group>"; };
+		080043E42BD4B21D0079797F /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		080D864F2BD3634300AD7B7C /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		080D86512BD36D3B00AD7B7C /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		080D86552BD3791100AD7B7C /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		080043E32BD4B2130079797F /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				080043E42BD4B21D0079797F /* CacheManager.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
 		080D86492BD35B4700AD7B7C /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				080D86632BD3A8E100AD7B7C /* Repositories */,
+				080043E32BD4B2130079797F /* Cache */,
 				080D86492BD35B4700AD7B7C /* Network */,
 				080D86662BD3A9FB00AD7B7C /* DataSource */,
 			);
@@ -384,6 +395,7 @@
 				080043DD2BD40E5B0079797F /* NewsDetailWebViewModel.swift in Sources */,
 				080D86582BD3794300AD7B7C /* NewsArticle.swift in Sources */,
 				080D866F2BD3B1F500AD7B7C /* NewsListAPIEndpoint.swift in Sources */,
+				080043E52BD4B21D0079797F /* CacheManager.swift in Sources */,
 				080D86682BD3AA8F00AD7B7C /* NewsListDataSource.swift in Sources */,
 				080D867B2BD3C2E200AD7B7C /* NewsListViewModel.swift in Sources */,
 				080D86602BD37CA700AD7B7C /* NewsQuery.swift in Sources */,

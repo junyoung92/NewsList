@@ -13,7 +13,7 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    func request<D: Codable>(endpoint: Endpoint<D>) -> AnyPublisher<D, Error> {
+    func request<D: Codable>(endpoint: Endpoint<D>, fileName: String) -> AnyPublisher<D, Error> {
         do {
             let url = AppConfiguration().apiBaseURL + endpoint.path
             var urlRequest = try URLRequest(url: url, method: endpoint.httpMethod)
@@ -33,7 +33,20 @@ final class NetworkManager {
             
             return AF.request(urlRequest)
                 .publishDecodable(type: D.self)
-                .value()
+                .tryMap { response -> D in
+                    if !(200...299).contains(response.response?.statusCode ?? 0) {
+                        guard let cachedData: D = CacheManager.shared.getCacheData(fileName: fileName) else {
+                            throw URLError(.badServerResponse)
+                        }
+                        return cachedData
+                    }
+                    guard let data = response.data else {
+                        throw AFError.responseSerializationFailed(reason: .decodingFailed(error: URLError(.badServerResponse)))
+                    }
+                    let decodedData = try JSONDecoder().decode(D.self, from: data)
+                    CacheManager.shared.cacheData(decodedData, fileName: fileName)
+                    return decodedData
+                }
                 .mapError { $0 as Error }
                 .eraseToAnyPublisher()
         } catch {
