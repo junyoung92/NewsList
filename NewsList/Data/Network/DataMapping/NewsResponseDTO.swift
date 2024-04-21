@@ -33,6 +33,15 @@ extension NewsResponseDTO.NewsArticleDTO {
         return .init(title: title, 
                      url: url,
                      urlToImage: urlToImage,
-                     publishedAt: publishedAt)
+                     publishedAt: dateFormatter.string(from: dateFormatter.date(from: publishedAt) ?? Date()))
     }
 }
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm"
+    formatter.calendar = Calendar(identifier: .iso8601)
+    formatter.timeZone = TimeZone(identifier: "Asia/Seoul")
+    formatter.locale = Locale(identifier: "ko_KR")
+    return formatter
+}()
