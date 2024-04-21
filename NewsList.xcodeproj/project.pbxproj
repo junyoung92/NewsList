@@ -31,7 +31,6 @@
 		080D86802BD3C32B00AD7B7C /* NewsListItemCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 080D867E2BD3C32B00AD7B7C /* NewsListItemCollectionViewCell.xib */; };
 		080D86822BD3C33F00AD7B7C /* NewsListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080D86812BD3C33F00AD7B7C /* NewsListCellViewModel.swift */; };
 		080D86852BD3C3C800AD7B7C /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080D86842BD3C3C800AD7B7C /* UIView+Extensions.swift */; };
-		080D86882BD3FDB200AD7B7C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 080D86872BD3FDB200AD7B7C /* Kingfisher */; };
 		080D868B2BD40CD700AD7B7C /* NewsDetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 080D868A2BD40CD700AD7B7C /* NewsDetailWebViewController.swift */; };
 		081043412BD148DF006AEF3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081043402BD148DF006AEF3E /* AppDelegate.swift */; };
 		081043432BD148DF006AEF3E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 081043422BD148DF006AEF3E /* SceneDelegate.swift */; };
@@ -86,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				080D86882BD3FDB200AD7B7C /* Kingfisher in Frameworks */,
 				080D864C2BD361F500AD7B7C /* Alamofire in Frameworks */,
 				080D864E2BD361F500AD7B7C /* AlamofireDynamic in Frameworks */,
 			);
@@ -322,7 +320,6 @@
 			packageProductDependencies = (
 				080D864B2BD361F500AD7B7C /* Alamofire */,
 				080D864D2BD361F500AD7B7C /* AlamofireDynamic */,
-				080D86872BD3FDB200AD7B7C /* Kingfisher */,
 			);
 			productName = NewsList;
 			productReference = 0810433D2BD148DF006AEF3E /* NewsList.app */;
@@ -354,7 +351,6 @@
 			mainGroup = 081043342BD148DF006AEF3E;
 			packageReferences = (
 				080D864A2BD361F500AD7B7C /* XCRemoteSwiftPackageReference "Alamofire" */,
-				080D86862BD3FDB200AD7B7C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0810433E2BD148DF006AEF3E /* Products */;
 			projectDirPath = "";
@@ -642,14 +638,6 @@
 				minimumVersion = 5.9.1;
 			};
 		};
-		080D86862BD3FDB200AD7B7C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.11.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -662,11 +650,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 080D864A2BD361F500AD7B7C /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = AlamofireDynamic;
-		};
-		080D86872BD3FDB200AD7B7C /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 080D86862BD3FDB200AD7B7C /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

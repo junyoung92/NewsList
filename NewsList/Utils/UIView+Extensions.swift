@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 extension UICollectionView {
     func registerNib<T: UICollectionViewCell>(_: T.Type) {
@@ -40,10 +39,13 @@ extension UIView {
 
 extension UIImageView {
     func setImage(path: String?) {
-        guard let path = path, let url = URL(string: path) else {
+        guard let path = path else {
             return
         }
-        self.kf.setImage(with: url)
+        
+        NetworkManager.shared.requestImage(path) { [weak self] image in
+            self?.image = image
+        }
     }
 }
 

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class CacheManager {
     
@@ -33,6 +34,38 @@ final class CacheManager {
             return decodedData
         } catch {
             print("Error loading cached data: \(error)")
+            return nil
+        }
+    }
+    
+    func cacheImage(_ image: UIImage, urlString: String) {
+        do {
+            guard let fileName = URL(string: urlString)?.lastPathComponent else {
+                return
+            }
+            let fileURL = try getFileURL(fileName: fileName, create: true)
+            if fileManager.fileExists(atPath: fileURL.path) {
+                deleteCacheData(fileName: fileName)
+            }
+            
+            if let imageData = image.jpegData(compressionQuality: 1.0) {
+                try imageData.write(to: fileURL)
+            }
+        } catch {
+            print("Error caching image: \(error)")
+        }
+    }
+    
+    func getCacheImage(urlString: String) -> UIImage? {
+        do {
+            guard let fileName = URL(string: urlString)?.lastPathComponent else {
+                return nil
+            }
+            let fileURL = try getFileURL(fileName: fileName, create: false)
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error getting cached image: \(error)")
             return nil
         }
     }

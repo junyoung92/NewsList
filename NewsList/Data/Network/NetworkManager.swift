@@ -8,6 +8,7 @@
 import Alamofire
 import Combine
 import Foundation
+import UIKit
 
 final class NetworkManager {
     
@@ -51,6 +52,29 @@ final class NetworkManager {
                 .eraseToAnyPublisher()
         } catch {
             return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
+    
+    func requestImage(_ urlString: String, completionHandler: @escaping (UIImage?) -> Void) {
+        guard let url = URL(string: urlString) else {
+            completionHandler(nil)
+            return
+        }
+     
+        if let cachedImage = CacheManager.shared.getCacheImage(urlString: urlString) {
+            completionHandler(cachedImage)
+        }
+        
+        DispatchQueue.global(qos: .background).async {
+            let request = URLRequest(url: url)
+            URLSession.shared.dataTask(with: request) { data, reponse, error in
+                if let data = data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        CacheManager.shared.cacheImage(image, urlString: urlString)
+                        completionHandler(image)
+                    }
+                }
+            }.resume()
         }
     }
 }
