@@ -15,14 +15,10 @@ class NewsListViewController: BaseViewController<NewsListViewModel>, BaseViewCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         
         setUI()
         bindViewModel()
+        NotificationCenter.default.addObserver(self, selector: #selector(orientationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     func setUI() {
@@ -45,7 +41,6 @@ class NewsListViewController: BaseViewController<NewsListViewModel>, BaseViewCon
         newsCollectionView.dataSource = self
         newsCollectionView.registerNib(NewsListItemCollectionViewCell.self)
     }
-    
     
     @objc func orientationDidChange() {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
@@ -92,8 +87,9 @@ extension NewsListViewController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeue(NewsListItemCollectionViewCell.self, for: indexPath) {
-            cell.configureCell(viewModel.cellViewModels[indexPath.row])
+        if let cell = collectionView.dequeue(NewsListItemCollectionViewCell.self, for: indexPath),
+           let cellViewModel = viewModel.getCellViewModel(indexPath) {
+            cell.configureCell(cellViewModel)
             return cell
         }
         return UICollectionViewCell()

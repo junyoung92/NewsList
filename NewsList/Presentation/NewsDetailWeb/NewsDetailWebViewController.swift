@@ -12,9 +12,9 @@ class NewsDetailWebViewController: BaseViewController<NewsDetailWebViewModel>, B
     
     @IBOutlet var webView: WKWebView!
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
         setUI()
         bindViewModel()
         loadWebView()

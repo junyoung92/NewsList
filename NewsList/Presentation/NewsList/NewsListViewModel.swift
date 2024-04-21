@@ -46,8 +46,12 @@ class NewsListViewModel: BaseListViewModel, BaseViewModelProtocol {
     }
     
     func getNewsDetailWebViewModel(_ indexPath: IndexPath) -> NewsDetailWebViewModel {
-        let cellViewModel = cellViewModels[indexPath.row] as? NewsListCellViewModel
+        let cellViewModel = getCellViewModel(indexPath)
         return NewsDetailWebViewModel(title: cellViewModel?.title ?? "",
                                       url: cellViewModel?.url ?? "")
+    }
+    
+    func getCellViewModel(_ indexPath: IndexPath) -> NewsListCellViewModel? {
+        return cellViewModels[indexPath.row] as? NewsListCellViewModel
     }
 }

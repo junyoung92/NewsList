@@ -5,7 +5,8 @@
 //  Created by Junyoung Kil on 4/20/24.
 //
 
-import Foundation
+import UIKit
+import Combine
 
 class NewsListCellViewModel: BaseCellViewModel {
     
@@ -13,6 +14,13 @@ class NewsListCellViewModel: BaseCellViewModel {
     private (set) var imageUrl: String? = nil
     private (set) var title: String = ""
     private (set) var publishedAt: String = ""
+    @Published var isSelected = false
+    
+    var titleTextColor: UIColor {
+        return isSelected ? .red : .black
+    }
+    
+    private var cancellable: Set<AnyCancellable> = []
     
     init(data: Any) {
         if let article = data as? NewsArticle {
