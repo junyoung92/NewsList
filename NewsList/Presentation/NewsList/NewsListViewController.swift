@@ -81,7 +81,10 @@ extension NewsListViewController: UICollectionViewDelegate,
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        if let vc = self.storyboard?.instantiate(viewController: NewsDetailWebViewController.self) {
+            vc.viewModel = viewModel.getNewsDetailWebViewModel(indexPath)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

@@ -15,6 +15,7 @@ struct NewsResponseDTO: Codable {
 extension NewsResponseDTO {
     struct NewsArticleDTO: Codable {
         var title: String
+        var url: String
         var urlToImage: String?
         var publishedAt: String
     }
@@ -30,6 +31,7 @@ extension NewsResponseDTO {
 extension NewsResponseDTO.NewsArticleDTO {
     func toEntity() -> NewsArticle {
         return .init(title: title, 
+                     url: url,
                      urlToImage: urlToImage,
                      publishedAt: publishedAt)
     }

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 class NewsListViewModel: BaseListViewModel, BaseViewModelProtocol {
     
@@ -42,5 +43,11 @@ class NewsListViewModel: BaseListViewModel, BaseViewModelProtocol {
                 self?.cellViewModels = newsEntity.articles.map { NewsListCellViewModel(data: $0) }
             }
             .store(in: &cancellable)
+    }
+    
+    func getNewsDetailWebViewModel(_ indexPath: IndexPath) -> NewsDetailWebViewModel {
+        let cellViewModel = cellViewModels[indexPath.row] as? NewsListCellViewModel
+        return NewsDetailWebViewModel(title: cellViewModel?.title ?? "",
+                                      url: cellViewModel?.url ?? "")
     }
 }

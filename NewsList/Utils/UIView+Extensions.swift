@@ -46,3 +46,9 @@ extension UIImageView {
         self.kf.setImage(with: url)
     }
 }
+
+extension UIStoryboard {
+    public func instantiate<T: UIViewController>(viewController: T.Type) -> T? {
+        return self.instantiateViewController(withIdentifier: String(describing: T.self)) as? T
+    }
+}
